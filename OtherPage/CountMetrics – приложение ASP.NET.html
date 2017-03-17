@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<!-- saved from url=(0042)http://localhost:63522/Home/EpidemiModeler -->
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://localhost:63522/Home/EpidemiModeler# -->
 <html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     
@@ -12,7 +12,7 @@
 
 
 </head>
-<body style="width:100%">
+<body>
     <script src="./CountMetrics – приложение ASP.NET_files/jquery-1.10.2.js.Без названия"></script>
 
     <script src="./CountMetrics – приложение ASP.NET_files/bootstrap.js.Без названия"></script>
@@ -20,471 +20,294 @@
 
     
 
-    <div class="container">
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="http://localhost:63522/">Epidemic modeler</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="http://localhost:63522/">Главная страница</a></li>
-                        <li><a href="http://localhost:63522/Home/About">О программе</a></li>
-                        <li><a href="http://localhost:63522/Home/Contact">Контакты</a></li>
-                    </ul>
-                </div>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:63522/">Epidemic modeler</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://localhost:63522/">Главная страница</a></li>
+                    <li><a href="http://localhost:63522/Home/About">О программе</a></li>
+                    <li><a href="http://localhost:63522/Home/Contact">Контакты</a></li>
+                </ul>
             </div>
         </div>
-        </div>
+    </div>
+
+    <div class="container body-content">
+        
 
 
+
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-sm-4 col-md-2 sidebar" style="padding-right:0; padding-left: 0;">
+
+                <form class="form-horizontal" role="form">
+                    <div class="panel panel-default control-main">
+                        <div class="panel-heading">Меню управления</div>
+                        
+                        <div class="row control-main">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="http://localhost:63522/Home/EpidemiModeler#" onclick="ui.nav.click(0)">Задать</a></li> 
+                                <li><a href="http://localhost:63522/Home/EpidemiModeler#" onclick="ui.nav.click(1)">Статистика и свёртка</a></li> 
+                            </ul>
+                        </div>
+                        <div class="panel-heading">Модель заражения</div>
+                        
+                        <div class="row control-main">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="http://localhost:63522/Home/EpidemiModeler#" onclick="ui.nav.click(2)">Микрофрактал</a></li> 
+                                <li><a href="http://localhost:63522/Home/EpidemiModeler#" onclick="ui.nav.click(3)">Эпидемии</a></li> 
+                            </ul>
+                        </div>
+                        <div class="panel-heading">Графики</div>
+                        
+                        <div class="row control-main">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="http://localhost:63522/Home/EpidemiModeler#" onclick="networkGraph.selectGraphicType(0); ui.nav.click(4)">Вершин</a></li> 
+                                <li><a href="http://localhost:63522/Home/EpidemiModeler#" onclick="networkGraph.selectGraphicType(1); ui.nav.click(4)">Трафика</a></li>
+                                <li><a href="http://localhost:63522/Home/EpidemiModeler#" onclick="networkGraph.selectGraphicType(2); ui.nav.click(4)">Риска</a></li>
+                                <li><a href="http://localhost:63522/Home/EpidemiModeler#" onclick="networkGraph.selectGraphicType(3); ui.nav.click(4)">Шанса</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default control-additional1" style="display: none;">
+                        <div class="panel-heading">Симуляция</div>
+                        <div class="panel-body">
+                            <div class="control-net" id="control-epidemic-my1" style="display: none;"><div class="progress" style="margin-bottom:5px;"><div id="epidemic_progress" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;"></div></div><div class="input-group"><input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2" value="10" name="num_steps"><span class="input-group-addon" id="basic-addon2">Количество шагов</span></div><div class="btn-group" style="width:100%;"><button type="button" class="btn btn-default" onclick="networkGraph.saveNumSteps(); networkGraph.inRealTime();" style="width:25%; margin-left: 0px;"><span class="glyphicon glyphicon-play"></span></button><button type="button" class="btn btn-default" onclick="networkGraph.pauseepidemi();" style="width:25%; margin-left: 0px;"><span class="glyphicon glyphicon-pause"></span></button><button type="button" class="btn btn-default" onclick="networkGraph.stopepidemi();" style="width:25%; margin-left: 0px;"><span class="glyphicon glyphicon-stop"></span></button><button type="button" class="btn btn-default" onclick="networkGraph.clearLayeredNet(); networkGraph.clearepidemi(); ui.nav.click(3);" style="width:25%; margin-left: 0px;"><span class="glyphicon glyphicon-refresh"></span></button></div><div class="form-group"><div class="col-sm-12"><label style="font-weight: 100;"><input type="range" min="100" max="2000" step="1" value="100" name="wait_time">Задержка</label></div></div></div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default control-additional2" style="display: none;">
+                        <div class="panel-heading">Параметры</div>
+                        <div class="panel-body">
+                            <div class="control-net" id="control-epidemic-my2" style="display: none;"><div class="checkbox"><label><input type="checkbox" id="layers1" onchange="networkGraph.toggleLayeredNet(); networkGraph.makeReLay(1); ui.nav.click(3);">Послойная модель</label></div><button type="button" class="btn btn-default" onclick="networkGraph.toCenter();" style="width:25%; margin-left: 0px;"><span class="glyphicon glyphicon-resize-small"></span></button></div>
+                        </div>
+                    </div>
+        </form>
+
+    </div>
     
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="padding-left: 0; padding-right: 0;">
+                
+                <div class="panel panel-default">
+                    <div class="row control-nav" id="podmenu" style="display: none;">
+                    </div>               
+                </div>
+                
+                <div class="control-content">
+                    
+                    <div class="panel panel-default">
 
-        <div id="graph" class="container body-content">
-
-
-
-
-            <div class="container-fluid">
-                <div class="row">
-
-                    <div id="sidebar" class="col-sm-4 col-md-2 sidebar" style="right:100%; padding-right:0; padding-left: 0;">
-
-                        <form class="form-horizontal" role="form">
-                            <div class="panel panel-default control-main">
-                                <div class="row control-main">
-                                    <button type="button" class="btn btn-default tile" data-toggle="collapse" data-target="#menuHide" style="width:100%">Меню управления</button>
-                                </div>
-                                <div id="menuHide" class="row control-main collapse">
-                                    <ul class="nav nav-pills nav-stacked">
-                                        <li><a href="#" onclick="ui.nav.click(0)">Задать</a></li>
-                                        <li><a href="#" onclick="ui.nav.click(1)">Статистика и свёртка</a></li>
-                                    </ul>
-                                </div>
-                                <div class="row control-main">
-                                    <button type="button" class="btn btn-default tile" data-toggle="collapse" data-target="#modelHide" style="width:100%">Модель заражения</button>
-                                </div>
-
-                                <div id="modelHide" class="row control-main collapse">
-                                    <ul class="nav nav-pills nav-stacked">
-                                        <li><a href="#" onclick="ui.nav.click(2)">Микрофрактал</a></li>
-                                        <li><a href="#" onclick="ui.nav.click(3)">Эпидемии</a></li>
-                                    </ul>
-                                </div>
-                                <div class="row control-main">
-                                    <button type="button" class="btn btn-default tile" data-toggle="collapse" data-target="#graphicHide" style="width:100%">Графики</button>
-                                </div>
-
-                                <div id="graphicHide" class="row control-main collapse">
-                                    <ul class="nav nav-pills nav-stacked">
-                                        <li><a href="#" onclick="networkGraph.selectGraphicType(0); ui.nav.click(4)">Вершин</a></li>
-                                        <li><a href="#" onclick="networkGraph.selectGraphicType(1); ui.nav.click(4)">Трафика</a></li>
-                                        <li><a href="#" onclick="networkGraph.selectGraphicType(2); ui.nav.click(4)">Риска</a></li>
-                                        <li><a href="#" onclick="networkGraph.selectGraphicType(3); ui.nav.click(4)">Шанса</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="row control-main">
-                                    <button type="button" class="btn btn-default tile" data-toggle="collapse" data-target="#simulHide" style="width:100%">Симуляция</button>
-                                </div>
-                                <div id="simulHide" class="panel-body collapse">
-                                    <div class="control-net" id="control-epidemic-my1" style="display: block;"><div class="progress" style="margin-bottom:5px;"><div id="epidemic_progress" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;"></div></div><div class="input-group"><input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2" value="10" name="num_steps"><span class="input-group-addon" id="basic-addon2">Количество шагов</span></div><div class="btn-group" style="width:100%;"><button type="button" class="btn btn-default" onclick="networkGraph.saveNumSteps(); networkGraph.inRealTime();" style="width:25%; margin-left: 0px;"><span class="glyphicon glyphicon-play"></span></button><button type="button" class="btn btn-default" onclick="networkGraph.pauseepidemi();" style="width:25%; margin-left: 0px;"><span class="glyphicon glyphicon-pause"></span></button><button type="button" class="btn btn-default" onclick="networkGraph.stopepidemi();" style="width:25%; margin-left: 0px;"><span class="glyphicon glyphicon-stop"></span></button><button type="button" class="btn btn-default" onclick="networkGraph.clearLayeredNet(); networkGraph.clearepidemi(); ui.nav.click(3);" style="width:25%; margin-left: 0px;"><span class="glyphicon glyphicon-refresh"></span></button></div><div class="form-group"><div class="col-sm-12"><label style="font-weight: 100;"><input type="range" min="100" max="2000" step="1" value="100" name="wait_time">Задержка</label></div></div></div>
-                                </div>
-                                <div class="row control-main">
-                                    <button type="button" class="btn btn-default tile" data-toggle="collapse" data-target="#paramHide" style="width:100%">Параметры</button>
-                                </div>
-                                <div id="paramHide" class="panel-body collapse">
-                                    <div class="control-net" id="control-epidemic-my2" style="display: block;"><div class="checkbox"><label><input type="checkbox" id="layers1" onchange="networkGraph.toggleLayeredNet(); networkGraph.makeReLay(1); ui.nav.click(3);">Послойная модель</label></div><button type="button" class="btn btn-default" onclick="networkGraph.toCenter();" style="width:25%; margin-left: 0px;"><span class="glyphicon glyphicon-resize-small"></span></button></div>
-                                </div>
-                               </div>
-                        </form>
-
-                    </div>
-
-                    <div id="mainPanel" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="padding-left: 0; padding-right: 0;">
-
-                        <div class="panel panel-default">
-                            <div class="row control-nav" id="podmenu" style="display: none;">
-                            </div>
-                        </div>
-
-                        <div class="control-content">
-
-                            <div class="panel panel-default" style="left:0px;">
-
-                                <div class="panel-body content-elements">
-
-                                    <div id="nav_epidemic_result" style="display: block;"><div class="row control-nav2" id="podmenu2"><ul class="nav nav-tabs"><li class="active"><a href="http://localhost:63522/Home/EpidemiModeler#" onclick="networkGraph.setTematicChanged();  networkGraph.choseMicrofractal(0); networkGraph.changeGraph(); ui.nav.click(3);">Тема1</a></li></ul></div></div>
+                        <div class="panel-body content-elements">
+                            
+                            <div id="nav_epidemic_result" style="display: none;"><div class="row control-nav2" id="podmenu2"><ul class="nav nav-tabs"><li class="active"><a href="http://localhost:63522/Home/EpidemiModeler#" onclick="networkGraph.setTematicChanged();  networkGraph.choseMicrofractal(0); networkGraph.changeGraph(); ui.nav.click(3);">Тема1</a></li></ul></div></div>
 
 
-                                    <div id="svg_container" style="display: block;">
-                                    <svg id="svgGraph" style="height:0px; width:0px">
-                                        <g id="graphPict" transform="translate(279.8998556636948,182.17426172563705)scale(2)">
-                                        <line class="link" x1="60" y1="23" x2="63" y2="3" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="93" y1="66" x2="63" y2="3" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="93" y1="66" x2="60" y2="23" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="20" y1="64" x2="63" y2="3" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="20" y1="64" x2="93" y2="66" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="20" y1="64" x2="60" y2="23" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="82" y1="106" x2="93" y2="66" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="82" y1="106" x2="60" y2="23" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="40" y1="43" x2="20" y2="64" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="40" y1="43" x2="60" y2="23" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="40" y1="43" x2="63" y2="3" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="11" y1="89" x2="82" y2="106" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="11" y1="89" x2="20" y2="64" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="11" y1="89" x2="40" y2="43" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="85" y1="21" x2="63" y2="3" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="85" y1="21" x2="82" y2="106" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="85" y1="21" x2="40" y2="43" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="66" y1="86" x2="60" y2="23" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="66" y1="86" x2="40" y2="43" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="66" y1="86" x2="93" y2="66" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="105" y1="86" x2="40" y2="43" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="105" y1="86" x2="82" y2="106" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="105" y1="86" x2="66" y2="86" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="40" y1="110" x2="60" y2="23" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="40" y1="110" x2="82" y2="106" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="18" y1="-1" x2="40" y2="43" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="18" y1="-1" x2="60" y2="23" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="113" y1="24" x2="60" y2="23" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="113" y1="24" x2="93" y2="66" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="113" y1="24" x2="105" y2="86" style="stroke-width: 1;"></line>
-                                        <line class="link" x1="0" y1="44" x2="20" y2="64" style="stroke-width: 1;"></line><line class="link" x1="0" y1="44" x2="40" y2="43" style="stroke-width: 1;"></line><line class="link" x1="0" y1="44" x2="60" y2="23" style="stroke-width: 1;"></line><line class="link" x1="120" y1="112" x2="82" y2="106" style="stroke-width: 1;"></line><line class="link" x1="120" y1="112" x2="105" y2="86" style="stroke-width: 1;"></line><line class="link" x1="135" y1="88" x2="93" y2="66" style="stroke-width: 1;"></line><line class="link" x1="135" y1="88" x2="120" y2="112" style="stroke-width: 1;"></line><line class="link" x1="3" y1="18" x2="20" y2="64" style="stroke-width: 1;"></line><line class="link" x1="3" y1="18" x2="40" y2="43" style="stroke-width: 1;"></line><line class="link" x1="3" y1="18" x2="60" y2="23" style="stroke-width: 1;"></line><line class="link" x1="42" y1="-5" x2="60" y2="23" style="stroke-width: 1;"></line><line class="link" x1="42" y1="-5" x2="18" y2="-1" style="stroke-width: 1;"></line><line class="link" x1="42" y1="-5" x2="63" y2="3" style="stroke-width: 1;"></line><line class="link" x1="105" y1="1" x2="93" y2="66" style="stroke-width: 1;"></line><line class="link" x1="105" y1="1" x2="60" y2="23" style="stroke-width: 1;"></line><line class="link" x1="93" y1="126" x2="93" y2="66" style="stroke-width: 1;"></line><line class="link" x1="93" y1="126" x2="82" y2="106" style="stroke-width: 1;"></line><line class="link" x1="93" y1="126" x2="66" y2="86" style="stroke-width: 1;"></line><circle class="node" r="7" cx="60" cy="23" style="fill: grey;"><title>Номер: 0 Соседей: 13 Вес: 0.115 Слой: 13 Статус: Susceptible</title></circle><circle class="node" r="7" cx="63" cy="3" style="fill: grey;"><title>Номер: 1 Соседей: 6 Вес: 0.065 Слой: 6 Статус: Susceptible</title></circle><circle class="node" r="7" cx="93" cy="66" style="fill: grey;"><title>Номер: 2 Соседей: 9 Вес: 0.08 Слой: 9 Статус: Susceptible</title></circle><circle class="node" r="7" cx="20" cy="64" style="fill: grey;"><title>Номер: 3 Соседей: 7 Вес: 0.0625 Слой: 7 Статус: Susceptible</title></circle><circle class="node" r="7" cx="82" cy="106" style="fill: grey;"><title>Номер: 4 Соседей: 8 Вес: 0.105 Слой: 8 Статус: Susceptible</title></circle><circle class="node" r="7" cx="40" cy="43" style="fill: grey;"><title>Номер: 5 Соседей: 10 Вес: 0.1075 Слой: 10 Статус: Susceptible</title></circle><circle class="node" r="7" cx="11" cy="89" style="fill: grey;"><title>Номер: 6 Соседей: 3 Вес: 0.0525 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="85" cy="21" style="fill: grey;"><title>Номер: 7 Соседей: 3 Вес: 0.025 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="66" cy="86" style="fill: grey;"><title>Номер: 8 Соседей: 5 Вес: 0.0475 Слой: 5 Статус: Susceptible</title></circle><circle class="node" r="7" cx="105" cy="86" style="fill: grey;"><title>Номер: 9 Соседей: 5 Вес: 0.06 Слой: 5 Статус: Susceptible</title></circle><circle class="node" r="7" cx="40" cy="110" style="fill: grey;"><title>Номер: 10 Соседей: 2 Вес: 0.015 Слой: 2 Статус: Susceptible</title></circle><circle class="node" r="7" cx="18" cy="-1" style="fill: grey;"><title>Номер: 11 Соседей: 3 Вес: 0.0225 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="113" cy="24" style="fill: grey;"><title>Номер: 12 Соседей: 3 Вес: 0.02 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="0" cy="44" style="fill: grey;"><title>Номер: 13 Соседей: 3 Вес: 0.005 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="120" cy="112" style="fill: grey;"><title>Номер: 14 Соседей: 3 Вес: 0.04 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="135" cy="88" style="fill: grey;"><title>Номер: 15 Соседей: 2 Вес: 0.035 Слой: 2 Статус: Susceptible</title></circle><circle class="node" r="7" cx="3" cy="18" style="fill: grey;"><title>Номер: 16 Соседей: 3 Вес: 0.0425 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="42" cy="-5" style="fill: grey;"><title>Номер: 17 Соседей: 3 Вес: 0.055 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="105" cy="1" style="fill: grey;"><title>Номер: 18 Соседей: 2 Вес: 0.0225 Слой: 2 Статус: Susceptible</title></circle><circle class="node" r="7" cx="93" cy="126" style="fill: grey;"><title>Номер: 19 Соседей: 3 Вес: 0.0225 Слой: 3 Статус: Susceptible</title></circle><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text x="57" y="26" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="60" y="6" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="90" y="69" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="17" y="67" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="79" y="109" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="37" y="46" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="8" y="92" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="82" y="24" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="63" y="89" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="102" y="89" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="37" y="113" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="15" y="2" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="110" y="27" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="-3" y="47" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="117" y="115" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="132" y="91" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="0" y="21" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="39" y="-2" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="102" y="4" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="90" y="129" font-family="sans-serif" font-size="8px" fill="White">S</text></g><g></g></svg></div>
-                                    <svg viewBox="0 0 95 50"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <g stroke="green" fill="white" stroke-width="1" transform="translate(20,20)scale(1)">
-                                            <circle cx="0px" cy="0px" r="20px" />
-                                            <circle cx="40px" cy="0px" r="20px" />
-                                        </g>
-                                    </svg>                                    
-                                    <div class="table-responsive" id="table_statistics" style="display: none;"></div>
-                                    <div id="svg_container3" class="table-responsive" style="display: none;"><svg class="axis" width="0" height="0"></svg></div>
-                                    <div id="info" style="display: none;"></div>
-
-                                    <div class="row" id="data_export" style="display: none;"></div>
-                                    <div class="table-responsive" id="data_matrix" style="display: none;"></div>
-                                    <div class="table-responsive" id="table_statistics" style="display: none;"></div>
-                                </div>
-                            </div>
+                            <div id="svg_container" style="display: none;"><svg width="850" height="600"><g transform="translate(338.50272255763673,202.51626982289378)scale(1.5512062615836282)"><line class="link" x1="42" y1="123" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="22" y1="103" x2="42" y2="123" style="stroke-width: 1;"></line><line class="link" x1="22" y1="103" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="64" y1="82" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="64" y1="82" x2="22" y2="103" style="stroke-width: 1;"></line><line class="link" x1="14" y1="62" x2="64" y2="82" style="stroke-width: 1;"></line><line class="link" x1="14" y1="62" x2="22" y2="103" style="stroke-width: 1;"></line><line class="link" x1="76" y1="39" x2="42" y2="123" style="stroke-width: 1;"></line><line class="link" x1="76" y1="39" x2="64" y2="82" style="stroke-width: 1;"></line><line class="link" x1="47" y1="147" x2="42" y2="123" style="stroke-width: 1;"></line><line class="link" x1="47" y1="147" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="56" y1="19" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="56" y1="19" x2="76" y2="39" style="stroke-width: 1;"></line><line class="link" x1="56" y1="19" x2="64" y2="82" style="stroke-width: 1;"></line><line class="link" x1="44" y1="62" x2="64" y2="82" style="stroke-width: 1;"></line><line class="link" x1="44" y1="62" x2="14" y2="62" style="stroke-width: 1;"></line><line class="link" x1="44" y1="62" x2="42" y2="123" style="stroke-width: 1;"></line><line class="link" x1="21" y1="19" x2="42" y2="123" style="stroke-width: 1;"></line><line class="link" x1="21" y1="19" x2="44" y2="62" style="stroke-width: 1;"></line><line class="link" x1="21" y1="19" x2="56" y2="19" style="stroke-width: 1;"></line><line class="link" x1="104" y1="129" x2="64" y2="82" style="stroke-width: 1;"></line><line class="link" x1="104" y1="129" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="17" y1="129" x2="22" y2="103" style="stroke-width: 1;"></line><line class="link" x1="17" y1="129" x2="64" y2="82" style="stroke-width: 1;"></line><line class="link" x1="17" y1="129" x2="42" y2="123" style="stroke-width: 1;"></line><line class="link" x1="72" y1="146" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="72" y1="146" x2="42" y2="123" style="stroke-width: 1;"></line><line class="link" x1="65" y1="126" x2="44" y2="62" style="stroke-width: 1;"></line><line class="link" x1="65" y1="126" x2="64" y2="82" style="stroke-width: 1;"></line><line class="link" x1="65" y1="126" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="49" y1="0" x2="64" y2="82" style="stroke-width: 1;"></line><line class="link" x1="49" y1="0" x2="21" y2="19" style="stroke-width: 1;"></line><line class="link" x1="49" y1="0" x2="76" y2="39" style="stroke-width: 1;"></line><line class="link" x1="96" y1="59" x2="56" y2="19" style="stroke-width: 1;"></line><line class="link" x1="96" y1="59" x2="64" y2="82" style="stroke-width: 1;"></line><line class="link" x1="96" y1="59" x2="44" y2="62" style="stroke-width: 1;"></line><line class="link" x1="116" y1="40" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="116" y1="40" x2="76" y2="39" style="stroke-width: 1;"></line><line class="link" x1="-6" y1="82" x2="42" y2="123" style="stroke-width: 1;"></line><line class="link" x1="-6" y1="82" x2="21" y2="19" style="stroke-width: 1;"></line><line class="link" x1="-6" y1="82" x2="22" y2="103" style="stroke-width: 1;"></line><line class="link" x1="96" y1="2" x2="49" y2="0" style="stroke-width: 1;"></line><line class="link" x1="96" y1="2" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="96" y1="2" x2="64" y2="82" style="stroke-width: 1;"></line><line class="link" x1="113" y1="102" x2="84" y2="102" style="stroke-width: 1;"></line><line class="link" x1="113" y1="102" x2="64" y2="82" style="stroke-width: 1;"></line><circle class="node" r="7" cx="42" cy="123" style="fill: grey;"><title>Номер: 0 Соседей: 9 Вес: 0.1066350710900474 Слой: 9 Статус: Susceptible</title></circle><circle class="node" r="7" cx="84" cy="102" style="fill: grey;"><title>Номер: 1 Соседей: 11 Вес: 0.12085308056872038 Слой: 11 Статус: Susceptible</title></circle><circle class="node" r="7" cx="22" cy="103" style="fill: grey;"><title>Номер: 2 Соседей: 6 Вес: 0.08293838862559241 Слой: 6 Статус: Susceptible</title></circle><circle class="node" r="7" cx="64" cy="82" style="fill: grey;"><title>Номер: 3 Соседей: 13 Вес: 0.14928909952606634 Слой: 13 Статус: Susceptible</title></circle><circle class="node" r="7" cx="14" cy="62" style="fill: grey;"><title>Номер: 4 Соседей: 3 Вес: 0.04265402843601896 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="76" cy="39" style="fill: grey;"><title>Номер: 5 Соседей: 5 Вес: 0.04976303317535545 Слой: 5 Статус: Susceptible</title></circle><circle class="node" r="7" cx="47" cy="147" style="fill: grey;"><title>Номер: 6 Соседей: 2 Вес: 0.02132701421800948 Слой: 2 Статус: Susceptible</title></circle><circle class="node" r="7" cx="56" cy="19" style="fill: grey;"><title>Номер: 7 Соседей: 5 Вес: 0.04028436018957346 Слой: 5 Статус: Susceptible</title></circle><circle class="node" r="7" cx="44" cy="62" style="fill: grey;"><title>Номер: 8 Соседей: 6 Вес: 0.054502369668246446 Слой: 6 Статус: Susceptible</title></circle><circle class="node" r="7" cx="21" cy="19" style="fill: grey;"><title>Номер: 9 Соседей: 5 Вес: 0.061611374407582936 Слой: 5 Статус: Susceptible</title></circle><circle class="node" r="7" cx="104" cy="129" style="fill: grey;"><title>Номер: 10 Соседей: 2 Вес: 0.02132701421800948 Слой: 2 Статус: Susceptible</title></circle><circle class="node" r="7" cx="17" cy="129" style="fill: grey;"><title>Номер: 11 Соседей: 3 Вес: 0.018957345971563982 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="72" cy="146" style="fill: grey;"><title>Номер: 12 Соседей: 2 Вес: 0.018957345971563982 Слой: 2 Статус: Susceptible</title></circle><circle class="node" r="7" cx="65" cy="126" style="fill: grey;"><title>Номер: 13 Соседей: 3 Вес: 0.035545023696682464 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="49" cy="0" style="fill: grey;"><title>Номер: 14 Соседей: 4 Вес: 0.018957345971563982 Слой: 4 Статус: Susceptible</title></circle><circle class="node" r="7" cx="96" cy="59" style="fill: grey;"><title>Номер: 15 Соседей: 3 Вес: 0.02132701421800948 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="116" cy="40" style="fill: grey;"><title>Номер: 16 Соседей: 2 Вес: 0.030805687203791468 Слой: 2 Статус: Susceptible</title></circle><circle class="node" r="7" cx="-6" cy="82" style="fill: grey;"><title>Номер: 17 Соседей: 3 Вес: 0.045023696682464455 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="96" cy="2" style="fill: grey;"><title>Номер: 18 Соседей: 3 Вес: 0.04028436018957346 Слой: 3 Статус: Susceptible</title></circle><circle class="node" r="7" cx="113" cy="102" style="fill: grey;"><title>Номер: 19 Соседей: 2 Вес: 0.018957345971563982 Слой: 2 Статус: Susceptible</title></circle><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text></text><text x="39" y="126" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="81" y="105" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="19" y="106" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="61" y="85" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="11" y="65" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="73" y="42" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="44" y="150" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="53" y="22" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="41" y="65" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="18" y="22" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="101" y="132" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="14" y="132" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="69" y="149" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="62" y="129" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="46" y="3" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="93" y="62" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="113" y="43" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="-9" y="85" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="93" y="5" font-family="sans-serif" font-size="8px" fill="White">S</text><text x="110" y="105" font-family="sans-serif" font-size="8px" fill="White">S</text></g><g></g></svg></div>
+                            <div id="svg_container2" style="display: none;"><svg width="800" height="400"><g></g></svg></div>
+                            <div class="table-responsive" id="table_statistics" style="display: none;"></div>
+                            <div id="svg_container3" style="display: none;"><svg class="axis" width="850" height="600"></svg></div>
+                            <div id="info" style="display: block;"><div class="panel panel-default control-main"><div class="panel-heading">Задание случайной сети:</div><div class="panel-body"><div class="form-group"> <div class="col-sm-12"><div class="input-group"><select class="form-control" id="name_random" name="name_random" style="width: 200px;"><option value="ErdosRenyi">ErdosRenyi</option><option value="WattsStrogatz">WattsStrogatz</option><option value="AlbertBarabasi" selected="selected">AlbertBarabasi</option></select><span class="input-group-addon" id="basic-addon2" style="width: 100px;">Алгоритм</span><span class="input-group-btn"><button class="btn btn-default" type="button" onclick="networkGraph.setParams();" style="width: 100px;">Параметры</button></span></div><div class="input-group"><input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2" value="20" name="num_nodes" style="width: 200px;"><span class="input-group-addon" id="basic-addon2" style="width: 100px;">Вершин</span><span class="input-group-btn"><button class="btn btn-default" type="button" onclick="networkGraph.clearLayeredNet(); networkGraph.saveNameLayout(); networkGraph.saveNameRandom();networkGraph.saveNumNodesAndGenerate(); ui.nav.click(3);" style="width: 100px;">Создать</button></span></div><div id="params"></div> </div> </div> </div></div><div class="panel panel-default control-main"><div class="panel-heading">Открыть файл модели сети:</div><div class="panel-body"><div class="form-group"> <div class="col-sm-12"><input type="file" class="file" onchange="networkGraph.clearLayeredNet(); ui.fileChangeHandler(this);">    </div> </div> </div></div><div class="panel panel-default control-main"><div class="panel-heading">Представление:</div><div class="panel-body"><div class="form-group"> <div class="col-sm-12"><div class="input-group"><select class="form-control" id="name_layout" name="name_layout" style="width: 200px;"><option value="FR">Fruchterman-Reingold</option><option value="KK">Kamada-Kawai</option><option value="ISOM">ISOM</option><option value="LinLog">LinLog</option><option value="Circular">Circular</option><option value="SimpleRandom">SimpleRandom</option></select><span class="input-group-addon" id="basic-addon2" style="width: 100px;">Укладка</span><span class="input-group-btn"><button class="btn btn-default" type="button" onclick="networkGraph.saveNameLayout(); networkGraph.makeReLay(0); ui.nav.click(3);" style="width: 100px;">Обновить</button></span></div><div class="checkbox"><label><input type="checkbox" id="layers1" onchange="networkGraph.toggleLayeredNet(); networkGraph.makeReLay(1); ui.nav.click(3);">Послойная модель</label></div><div class="checkbox"><label><input type="checkbox" id="wb3" onchange="networkGraph.toggleWBPrint(); networkGraph.DoWBPrint();">Ч/Б режим для печати</label></div>    </div> </div> </div></div></div>
+                            
+                            <div class="row" id="data_export" style="display: none;"></div>
+                            <div class="table-responsive" id="data_matrix" style="display: none;"></div>
+                            <div class="table-responsive" id="table_statistics" style="display: none;"></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <script src="./CountMetrics – приложение ASP.NET_files/jquery-1.10.2.js.Без названия"> </script>
-            <script src="./CountMetrics – приложение ASP.NET_files/d3.v3.js.Без названия"> </script>
-            <script src="./CountMetrics – приложение ASP.NET_files/vis.min.js.Без названия"> </script>
-            <script src="./CountMetrics – приложение ASP.NET_files/graph.js.Без названия"> </script>
-            <script src="./CountMetrics – приложение ASP.NET_files/jquery.timers.js" type="text/javascript"></script>
-            <style>
-                /* tell the SVG path to be a thin blue line without any area fill */
-                path {
-                    stroke: steelblue;
-                    stroke-width: 3;
-                    fill: none;
-                }
-
-                .axis {
-                    shape-rendering: crispEdges;
-                }
-
-                .x.axis line {
-                    stroke: lightgrey;
-                }
-
-                .x.axis .minor {
-                    stroke-opacity: .5;
-                }
-
-                .x.axis path {
-                    /*			  display: none;*/
-                }
-
-                .y.axis line, .y.axis path {
-                    fill: none;
-                    stroke: #000;
-                }
-
-                .x.axis path {
-                    stroke: #000;
-                }
-
-                #data_matrix td.centrality {
-                    background-color: red;
-                }
-            </style>
-
-            <style>
-                .my-left-menu {
-                    margin-top: 5px;
-                    padding-top: 0px;
-                    padding-right: 0px;
-                    border-right-width: 0px;
-                    padding-left: 0px;
-                }
-
-                .control-nav, .control-content {
-                    margin-top: 5px;
-                }
-
-                .control-nav2 {
-                    margin-top: 5px;
-                }
-
-                .node {
-                    stroke: #fff;
-                    stroke-width: 0px;
-                }
-
-                .link {
-                    stroke: #999;
-                    stroke-opacity: .6;
-                }
-
-                .table > thead > tr > td.info,
-                .table > tbody > tr > td.info,
-                .table > tfoot > tr > td.info,
-                .table > thead > tr > th.info,
-                .table > tbody > tr > th.info,
-                .table > tfoot > tr > th.info,
-                .table > thead > tr.info > td,
-                .table > tbody > tr.info > td,
-                .table > tfoot > tr.info > td,
-                .table > thead > tr.info > th,
-                .table > tbody > tr.info > th,
-                .table > tfoot > tr.info > th {
-                    background-color: #eeeeee;
-                }
-
-                .table-responsive {
-                    overflow-x: auto;
-                    min-height: 0.01%;
-                }
-
-                .alert {
-                    position: relative;
-                    z-index: 2000;
-                }
-
-                /*панель действий слева*/
-                .sidebar {
-                    display: none;
-                }
-
-                .mynav {
-                        width:100%;
-                    }
-                @media (max-width: 900px) {
-                    .mynav {
-                        width:360px;
-                    }
-                }
-
-                .tile 
-                {
-                    border-radius:0px;
-                }
-
-                @media (min-width: 0px) {
-                    .sidebar {
-                        position: fixed;
-                        top: 51px;
-                        bottom: 0;
-                        left: 0;
-                        z-index: 1000;
-                        display: block;
-                        padding: 5px;
-                        overflow-x: hidden;
-                        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-                        background-color: #ffffff;
-                        border-right: 1px solid #eee;
-                    }
-                }
-
-
-                .axis path, .axis line {
-                    fill: none;
-                    stroke: #333;
-                }
-
-                .axis .grid-line {
-                    stroke: #000;
-                    stroke-opacity: 0.2;
-                }
-
-                .axis text {
-                    font: 13px Verdana;
-                }
-
-
-                .material-switch > input[type="checkbox"] {
-                    display: none;
-                }
-
-                .material-switch > label {
-                    cursor: pointer;
-                    height: 0px;
-                    position: relative;
-                    width: 40px;
-                }
-
-                    .material-switch > label::before {
-                        background: rgb(0, 0, 0);
-                        box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
-                        border-radius: 8px;
-                        content: '';
-                        height: 16px;
-                        margin-top: -8px;
-                        position: absolute;
-                        opacity: 0.3;
-                        transition: all 0.4s ease-in-out;
-                        width: 40px;
-                    }
-
-                    .material-switch > label::after {
-                        background: rgb(255, 255, 255);
-                        border-radius: 16px;
-                        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-                        content: '';
-                        height: 24px;
-                        left: -4px;
-                        margin-top: -8px;
-                        position: absolute;
-                        top: -4px;
-                        transition: all 0.3s ease-in-out;
-                        width: 24px;
-                    }
-
-                .material-switch > input[type="checkbox"]:checked + label::before {
-                    background: inherit;
-                    opacity: 0.5;
-                }
-
-                .material-switch > input[type="checkbox"]:checked + label::after {
-                    background: inherit;
-                    left: 20px;
-                }
-            </style>
-
-            <script type="text/javascript">
-                //Блок глобальных переменных
-
-                //Мой блок начало
-
-             
-                //Мой блок конец
-
-
-        var height = 600;
-        var width = 700;
-        var margin = 40;
-
-        var yAxisLength = height - 2 * margin;
-
-
-        function graphZoom(scaleGraph)
-        {
-            var xPos = xAx.transform.baseVal[0].matrix.e;
-            var yPos = xAx.transform.baseVal[0].matrix.f;
-
-            xAx.setAttribute("transform", "translate(" + xPos + "," + yPos + ")scale(" + scaleGraph + ")");
-
-            xPos = yAx.transform.baseVal[0].matrix.e;
-            yPos = yAx.transform.baseVal[0].matrix.f;
-
-
-
-            yAx.setAttribute("transform", "translate(" + xPos + "," + (height - yAxisLength * scaleGraph + 30) + ")scale(" + scaleGraph + ")");
-
-            Discretion.x.baseVal[0].value = (width - margin + 30) * scaleGraph;
-            time.x.baseVal[0].value = (width - margin + 30) * scaleGraph;
+    <script src="./CountMetrics – приложение ASP.NET_files/jquery-1.10.2.js.Без названия"> </script>
+    <script src="./CountMetrics – приложение ASP.NET_files/d3.v3.js.Без названия"> </script>
+    <script src="./CountMetrics – приложение ASP.NET_files/vis.min.js.Без названия"> </script>
+    <script src="./CountMetrics – приложение ASP.NET_files/graph.js.Без названия"> </script>
+    <style>
+        /* tell the SVG path to be a thin blue line without any area fill */
+        path {
+            stroke: steelblue;
+            stroke-width: 3;
+            fill: none;
         }
 
-        function scroll(event)
-        {
+        .axis {
+            shape-rendering: crispEdges;
+        }
 
-            event.preventDefault();
+        .x.axis line {
+            stroke: lightgrey;
+        }
 
-            event = event || window.event;
+        .x.axis .minor {
+            stroke-opacity: .5;
+        }
 
-            var delta = event.deltaY || event.detail || event.wheelDelta;
+        .x.axis path {
+            /*			  display: none;*/
+        }
 
-            var scaleGraph = xAx.transform.baseVal[1].matrix.a - 0.2 * delta / 166.66665649414062;
+        .y.axis line, .y.axis path {
+            fill: none;
+            stroke: #000;
+        }
 
-            graphZoom(scaleGraph);
+        .x.axis path {
+            stroke: #000;
+        }
 
+        #data_matrix td.centrality {
+            background-color: red;
+        }
+    </style>
+
+    <style>
+        .my-left-menu {
+            margin-top: 5px;
+            padding-top: 0px;
+            padding-right: 0px;
+            border-right-width: 0px;
+            padding-left: 0px;
 
         }
 
-        svg_container3.addEventListener("wheel", scroll);
+        .control-nav, .control-content {
+            margin-top: 5px;
+        }
 
-        var objzoom = document.getElementById("svg_container3");
-        var scaling = false;
-        var dist = 0;
-        var scale_factor = 1.0;
-        var curr_scale = 1.0;
-        var max_zoom = 1.05;
-        var min_zoom = 0.1
+        .control-nav2 {
+            margin-top: 5px;
+        }
 
-        /*Пишем функцию, которая определяет расстояние меж пальцами*/
-        function distance(p1, p2) {
-            return (Math.sqrt(Math.pow((p1.clientX - p2.clientX), 2) + Math.pow((p1.clientY - p2.clientY), 2)));
+        .node {
+            stroke: #fff;
+            stroke-width: 0px;
+        }
+
+        .link {
+            stroke: #999;
+            stroke-opacity: .6;
+        }
+
+        .table > thead > tr > td.info,
+        .table > tbody > tr > td.info,
+        .table > tfoot > tr > td.info,
+        .table > thead > tr > th.info,
+        .table > tbody > tr > th.info,
+        .table > tfoot > tr > th.info,
+        .table > thead > tr.info > td,
+        .table > tbody > tr.info > td,
+        .table > tfoot > tr.info > td,
+        .table > thead > tr.info > th,
+        .table > tbody > tr.info > th,
+        .table > tfoot > tr.info > th {
+            background-color: #eeeeee;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            min-height: 0.01%;
+        }
+
+        .alert {
+            position: relative;
+            z-index: 2000;
+        }
+
+        /*панель действий слева*/
+        .sidebar {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                position: fixed;
+                top: 51px;
+                bottom: 0;
+                left: 0;
+                z-index: 1000;
+                display: block;
+                padding: 5px;
+                overflow-x: hidden;
+                overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+                background-color: #ffffff;
+                border-right: 1px solid #eee;
+            }
         }
 
 
-        /*Ловим начало косания*/
-        objzoom.addEventListener('touchstart', function (evt) {
-            //evt.preventDefault();
-            var tt = evt.targetTouches;
-            if (tt.length > 1) {
-                evt.preventDefault();
-            }
-            if (tt.length >= 2) {
-                dist = distance(tt[0], tt[1]);
-                scaling = true;
-            } else {
-                scaling = false;
-            }
-        }, false);
-        /*Ловим зумирование*/
-        objzoom.addEventListener('touchmove', function (evt) {
-            //evt.preventDefault();
-            var tt = evt.targetTouches;
-            if (tt.length > 1)
-            {
-                evt.preventDefault();
-            }
-            if (scaling) {
-                curr_scale = distance(tt[0], tt[1]) / dist * scale_factor;
-                graphZoom(curr_scale);
-            }
-        }, false);
-        /*Ловим конец косания*/
-        objzoom.addEventListener('touchend', function (evt) {
-            var tt = evt.targetTouches;
-            if (tt.length < 2) {
-                scaling = false;
-                if (curr_scale < min_zoom) {
-                    scale_factor = min_zoom;
-                } else {
-                    if (curr_scale > max_zoom) {
-                        scale_factor = max_zoom;
-                    } else {
-                        scale_factor = curr_scale;
-                    }
-                }
-                graphZoom(scale_factor);
-            } else {
-                scaling = true;
-            }
-        }, false);
+.axis path, .axis line {
+    fill: none;
+    stroke: #333;
+}
+.axis .grid-line {
+    stroke: #000;
+    stroke-opacity: 0.2;
+}
+.axis text {
+    font: 13px Verdana;
+}
 
+
+.material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+    </style>
+
+    <script type="text/javascript">
+        //Блок глобальных переменных
         var epidemi_steps = 0; // Переменная количества шагов эпидемии в текущем графе
 
         // Статистика
@@ -499,7 +322,7 @@
         //Класс для тем - одиночная модель
         function TemClass(options) {
             var _this1 = this;
-            this.Selected = []; // Выбранные номера
+            this.Selected = []; // Выбранные номера  
 
             function Verticles(options) {
                 this.Infected = [];
@@ -537,8 +360,8 @@
         //Класс для тем - двойная модель
         function TemClassTwo(options) {
             var _this2 = this;
-            this.Selected1 = []; // Выбранные номера
-            this.Selected2 = []; // Выбранные номера
+            this.Selected1 = []; // Выбранные номера  
+            this.Selected2 = []; // Выбранные номера  
 
             function Verticles(options) {
                 this.Infected1 = [];
@@ -571,7 +394,7 @@
                     _this2.dRisk1.push(1 - _this2.dTraffic.Infected1[i] - _this2.dTraffic.Latent1[i]);
                     _this2.dRisk2.push(1 - _this2.dTraffic.Infected2[i] - _this2.dTraffic.Latent2[i]);
                     _this2.dRisk21.push(-_this2.dTraffic.Infected2[i] - _this2.dTraffic.Latent2[i] + _this2.dTraffic.Infected1[i] + _this2.dTraffic.Latent1[i]);
-                    _this2.dRisk12.push(-_this2.dTraffic.Infected1[i] - _this2.dTraffic.Latent1[i] + _this2.dTraffic.Infected2[i] + _this2.dTraffic.Latent2[i]);
+                    _this2.dRisk12.push(-_this2.dTraffic.Infected1[i] - _this2.dTraffic.Latent1[i] + _this2.dTraffic.Infected2[i] + _this2.dTraffic.Latent2[i]);                    
                 }
             }
 
@@ -587,7 +410,7 @@
 
             this.Chance1 = [];
             this.Chance2 = [];
-            this.dChance1 = [];
+            this.dChance1 = [];                               
             this.dChance2 = [];
 
             this.Risk12 = [];
@@ -595,7 +418,7 @@
             this.dRisk12 = [];
             this.dRisk21 = [];
 
-            this.Chance12 = [];
+            this.Chance12 = [];           
             this.Chance21 = [];
             this.dChance12 = [];
             this.dChance21 = [];
@@ -743,7 +566,7 @@
                     masMicrofractalP[i][1] = pr;
                     masMicrofractalP[i][2] = pe;
                     masMicrofractalP[i][3] = pam;
-                }
+                }             
             }
 
             // Сохранить коэффициент репостов
@@ -764,12 +587,11 @@
         //класс для моделирования сети
         function NetworkGraph(options) {
             //склеивание полей объектов - для первой загрузки
-            //убрал лишний svg
-            /*$.extend(
+            $.extend(
                     this
                 , {
                     placeholder: $('#svg_container').get(0)
-                    , width: 280
+                    , width: 850
                     , height: 600
                     , scaleExtent: [0.04, 8]
                     , node_radius: 7
@@ -777,7 +599,7 @@
                     , link_distance: 65
                 }
                 , options
-            );*/
+            );
 
             // Переменные для функций
             var statusInfekcii = "Infected";
@@ -787,7 +609,7 @@
                 .scaleExtent(this.scaleExtent)
                 .on("zoom", function () {
                     container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-                });
+                });           
 
             //Первоначальное увеличение
             zoom.translate([400, 250]).scale(1);
@@ -805,10 +627,9 @@
 
             // создание объекта svg
             var svg_diagram = d3.select(placeholder2).append("svg")
-                    .attr("id", "Ax")
                     .attr("class", "axis")
-                    .attr("width", 800)
-                    .attr("height", 700);
+                    .attr("width", 850)
+                    .attr("height", 600);
 
             this.isLayeredDisplay = false;
             var _this = this;
@@ -944,7 +765,7 @@
 
                 var dx = x_max - x_min + margin_x;
                 var dy = y_max - y_min + margin_y;
-
+           
                 // х больше, значит масштаб по х
                 if ((dx / 850) > (dy / 600)) {
                     center_scale = 850 / dx;
@@ -955,7 +776,7 @@
                     center_scale = 600 / dy;
                     x_center = (850 - (dx - margin_x) * center_scale) / 2 - x_min * center_scale;
                     y_center = (600 - (dy - margin_y) * center_scale) / 2 - y_min * center_scale;
-                }
+                }                   
 
                 container.attr("transform", "translate(" + x_center + "," + y_center + ")scale(" + center_scale + ")");
                 zoom.translate([x_center, y_center]).scale(center_scale);
@@ -1353,11 +1174,11 @@
 
             //все для отрисовки графиков
             this.drawDiagram = function () {
-                /*var height = 600;
-                    width = 700,
-                    margin = 25,*/
+                var height = 600,
+                    width = 800,
+                    margin = 75,
 
-                var data_infected = [];
+                data_infected = [];
                 data_protected = [];
                 data_latent = [];
                 data_died = [];
@@ -1396,7 +1217,7 @@
                         max_y = 1; // / 3.0;
                         min_y = -1.0; // / 3.0;
                     }
-                }
+                }               
 
                 // Составляем общий Temp массив
                 var masTemp = _this.getTempMas();
@@ -1427,7 +1248,7 @@
                         var maxy = Math.max.apply(null, max_mas);
                         if (maxy < 0) max_y = 0;
                         else max_y = maxy * 1.05;
-                    }
+                    }                   
                 }
 
                 // функция интерполяции значений на ось Х
@@ -1469,17 +1290,15 @@
                 // отрисовка оси Х
                 svg_diagram.append("g")
                      .attr("class", "x-axis")
-                     .attr("id","xAx")
                      .attr("transform",  // сдвиг оси вниз и вправо
-                         "translate(" + margin + "," + (height + 30) + ")" + "scale(1)")
+                         "translate(" + margin + "," + (height - margin) + ")")
                     .call(xAxis);
 
                 // отрисовка оси Y
                 svg_diagram.append("g")
                     .attr("class", "y-axis")
-                    .attr("id", "yAx")
                     .attr("transform", // сдвиг оси вниз и вправо на margin
-                            "translate(" + margin + "," + (height - yAxisLength + 30) + ")" + "scale(1)")
+                            "translate(" + margin + "," + margin + ")")
                     .call(yAxis);
 
                 // создаем набор вертикальных линий для сетки
@@ -1539,7 +1358,7 @@
 
                 // Подписи
                 // добавляем заголовок
-/*                if (!isRiskAnalis) {
+/*                if (!isRiskAnalis) {            
                     svg_diagram.append("g").append("text")
                         .attr("x", (width / 2))
                         .attr("y", margin - 10)
@@ -1597,16 +1416,14 @@
 
                 svg_diagram.append("g").append("text")
                     .attr("x", width - margin + 30)
-                    .attr("y", height + 10)
-                    .attr("id","Discretion")
+                    .attr("y", height - margin - 14)
                     .attr("text-anchor", "end")
                     .style("font-size", "13px")
                     .text("Дискретное");
 
                 svg_diagram.append("g").append("text")
                     .attr("x", width - margin + 30)
-                    .attr("y", height + 20)
-                    .attr("id", "time")
+                    .attr("y", height - margin - 5)
                     .attr("text-anchor", "end")
                     .style("font-size", "13px")
                     .text("время");
@@ -1627,7 +1444,7 @@
 
                 var part = Math.floor(save_num_steps / 5);
                 //5 букв - подписей
-                //
+                //  
            //     document.write(data_died.length);
                 if (isOnlyTems && !isRiskAndChance) {
                     if (mas_length >= (part - 1)) {
@@ -1993,7 +1810,7 @@
                 svg_diagram.append("g")
                     .attr("class", "y-axis")
                     .attr("transform", // сдвиг оси вниз и вправо на margin
-                            "translate(" + margin + "," + (height - yAxisLength) + ")")
+                            "translate(" + margin + "," + margin + ")")
                     .call(yAxis);
 
                 // создаем набор вертикальных линий для сетки
@@ -2046,7 +1863,7 @@
                 .style("stroke", AM_color)
                 .style("stroke-width", 2);
 
-
+                
                     svg_diagram.append("g").append("path")
                     .attr("d", line(data5))
                     .style("stroke-dasharray", ("20, 5, 2, 5"))
@@ -2431,7 +2248,7 @@
             }
 
             // Удалим 2 прямоугольника выбора инфекции
-            this.deleteInfectionRects = function (data) {
+            this.deleteInfectionRects = function (data) {             
                 containerRects.selectAll("text").remove();
                 containerRects.selectAll("rect").remove();
             }
@@ -2530,7 +2347,7 @@
                                      if (d.letter == "A+M2") return AM_letter_color;
                                      if (d.letter == "E2") return E_letter_color;
                                  })
-
+              
                 // Заполняем данными для графа
                 if (this.isTwoModel == false) {
                     TemsObjects[selected_tematic].Nodes.Infected.push(data["epidemi"]["i_count"]);
@@ -2634,7 +2451,7 @@
 
                 var select = selected_tematic;
                 var select2 = selected_tematic;
-                //
+                // 
                 if (networkGraph.isTwoModel) {
                     select = selected_tem1;
                     select2 = selected_tem2;
@@ -2661,7 +2478,7 @@
                               //console.debug(data_tmp);
 
                               _this.refreshEpidemiGraph(data);
-                          }
+                          }                         
                       }
                 });
             }
@@ -2802,7 +2619,7 @@
                 } else {
                     TemsObjectsTwo[0].makeRiskAndChance();
                 }
-
+                
  //               disabledMenuFlag = false;
 
 //                var li_left_menu = $('.control-main li'); //control - nav
@@ -2863,7 +2680,7 @@
                         }
                     }
                 });
-            }
+            }            
 
             //Мой обработчик кнопки "Обновить укладку и послойная модель"
             this.makeReLay = function (data) {
@@ -3048,7 +2865,7 @@
             //Мой обработчик кнопки "Выбрать микрофрактал"
             this.setTematicChanged = function (data) {
                tematic_changed = true;
-            }
+            }           
 
             //Обработчик кнопки сбросить
             this.reset_force = function () {
@@ -3171,7 +2988,7 @@
                     var li_left_menu = $('.control-main li'); //control - nav
                     var li_right_menu = $('.control-nav li'); //control - nav
 //                    var li_tematic_menu = $('.nav-tabs li'); //control - nav
-
+                    
 /*                    li.removeClass(''); //active
                     if (li.eq(index).hasClass('disabled')) {
                         return;
@@ -3225,7 +3042,7 @@
                             $('#info').html(
                     '<div class="panel panel-default control-main">' +
                     '<div class="panel-heading">Задание случайной сети:</div>' +
-                    '<div class="panel-body table-responsive">' +
+                    '<div class="panel-body">' +
                         '<div class="form-group">' +
                            ' <div class="col-sm-12">' +
 
@@ -3235,13 +3052,13 @@
                                 '<option value="WattsStrogatz">WattsStrogatz</option>' +
                                 '<option value="AlbertBarabasi" selected="selected">AlbertBarabasi</option>' +
                             '</select>' +
-                            '<span class="input-group-addon" id="basic-addon2"><div style="width:100px">Алгоритм</div></span>' +
+                            '<span class="input-group-addon" id="basic-addon2" style="width: 100px;">Алгоритм</span>' +
                             '<span class="input-group-btn"><button class="btn btn-default" type="button" onclick="networkGraph.setParams();" style="width: 100px;">Параметры</button></span>' +
                         '</div>' +
 
                         '<div class="input-group">' +
                             '<input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2" value="' + save_num_nodes + '" name="num_nodes" style="width: 200px;">' +
-                            '<span class="input-group-addon" id="basic-addon2"><div style="width:100px">Вершин</div></span>' +
+                            '<span class="input-group-addon" id="basic-addon2" style="width: 100px;">Вершин</span>' +
                             '<span class="input-group-btn"><button class="btn btn-default" type="button" onclick="networkGraph.clearLayeredNet(); networkGraph.saveNameLayout(); networkGraph.saveNameRandom();networkGraph.saveNumNodesAndGenerate(); ui.nav.click(3);" style="width: 100px;">Создать</button></span>' + //  data-toggle="tooltip" data-placement="right" title="Подсказка"
                         '</div>' +
 
@@ -3269,7 +3086,7 @@
 
                     '<div class="panel panel-default control-main">' +
                     '<div class="panel-heading">Представление:</div>' +
-                    '<div class="panel-body table-responsive">' +
+                    '<div class="panel-body">' +
                         '<div class="form-group">' +
                            ' <div class="col-sm-12">' +
 
@@ -3287,7 +3104,7 @@
                                 '<option value="SimpleRandom">SimpleRandom</option>' +
                            //     '<option value="Tree">Tree</option>' +
                             '</select>' +
-                            '<span class="input-group-addon" id="basic-addon2"><div style="width:100px">Укладка</div></span>' +
+                            '<span class="input-group-addon" id="basic-addon2" style="width: 100px;">Укладка</span>' +
                             '<span class="input-group-btn"><button class="btn btn-default" type="button" onclick="networkGraph.saveNameLayout(); networkGraph.makeReLay(0); ui.nav.click(3);" style="width: 100px;">Обновить</button></span>' +
                         '</div>' +
 
@@ -3302,7 +3119,7 @@
                              '</div>'
                              ).show();
 
-                            // Добавим/удалим выбор с укладки
+                            // Добавим/удалим выбор с укладки                           
                             $('#name_random').val(save_name_random).change();
                             $('#name_layout').val(save_name_layout).change();
                             break;
@@ -3363,7 +3180,7 @@
                         '</div>'
                                 ).show();
 
-                            // Добавим/удалим выбор с микрофракталов
+                            // Добавим/удалим выбор с микрофракталов                       
                             $('#name_tem1').val(selected_tem1).change();
                             $('#name_tem2').val(selected_tem2).change();
 
@@ -3409,7 +3226,7 @@
                         '</div>'
                             ).show();
 
-                            $('#svg_container').show();
+                            $('#svg_container').show();                     
 
                             // Делаем лишние кнопки неактивными
                         /*    if (disabledMenuFlag) {
@@ -3418,7 +3235,7 @@
                                 li_right_menu2.eq(3).addClass("disabled").find("a").attr("onclick", "return false;");
                             }*/
 
-
+                            
                             var html = '';
 
                             html += '<div class="row control-nav2" id="podmenu2">' +
@@ -3459,7 +3276,7 @@
                             '<div class="checkbox"><label><input type="checkbox" id="layers1" onchange="networkGraph.toggleLayeredNet(); networkGraph.makeReLay(1); ui.nav.click(3);"' + checked + '>Послойная модель</label></div>' +
                         '<div>' +
                         '<div class="checkbox"><label><input type="checkbox" id="layers2" onchange="networkGraph.toggleLayeredNetCut(); networkGraph.makeReLay(1); ui.nav.click(3);"' + checked2 + '>Исключить неиспользуемые слои</label></div>' +
-
+                        
                             '<div class="input-group" style="width:100%;">' +
                             '<input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2" value="' + networkGraph.save_dx + '" name="grid_dx">' +
                             '<span class="input-group-addon" style="width:35%;" id="basic-addon2">dx</span>' +
@@ -3518,7 +3335,7 @@
                             '</li>'*/
                         ).show();
 
-
+                            
                             var html = '';
 
                             html += '<div class="row control-nav2" id="podmenu2">' +
@@ -3539,7 +3356,7 @@
 
                                 if ((selected_status == 4) && (!isOnlyTems)) html += '<li class="active"><a onclick="networkGraph.choseOneStatusGraphic(4); ui.nav.click(4);">Восприимчивые</a></li>';
                                 else html += '<li><a href="#" onclick="networkGraph.choseOneStatusGraphic(4); ui.nav.click(4);">Восприимчивые</a></li>';
-
+                  
                             for (var i = 0; i < lines_microfractal; i++) {
                                 if ((i == selected_tematic)&&(isOnlyTems))
                                     html += '<li class="active"><a href="#" onclick="networkGraph.choseMicrofractal(' + i + '); ui.nav.click(4);">Тема' + (i + 1) + '</a></li>';
@@ -3581,8 +3398,8 @@
 
                                 $('#data_matrix').html(ui.epidemic_build()).show();
                             //}
-                            break;
-/*
+                            break;                    
+/*                                 
                             var li_right_menu3 = $('.control-nav li'); //control - nav
                             li_right_menu3.eq(riskAnalisChoice).addClass('active'); */
                     }
@@ -3650,7 +3467,7 @@
                     // Глиф-иконочки
                     html += ('<div style="text-align: right;">'); //btn - group
                     html += ('<label class="btn btn-default btn-file"><span class="glyphicon glyphicon-floppy-save"></span><input type="file" style="display: none;" onchange="ui.fileChangeHandler2(this);"></label>'); //btn - xs
-                    html += ('<button type="button" class="btn btn-default" onclick="ui.downloadFile2()"><span class="glyphicon glyphicon-floppy-open"></span></button>'); //btn - xs
+                    html += ('<button type="button" class="btn btn-default" onclick="ui.downloadFile2()"><span class="glyphicon glyphicon-floppy-open"></span></button>'); //btn - xs      
                     html += ('</div>');
 
                     html += '<table class="table table-bordered" >';
@@ -3667,7 +3484,7 @@
                                 html += (['<td class="info">'
                                     , header[i]
                                     , '</td>'].join(''));
-                            }
+                            } 
                         }
                         html += '</tr>'
                         html += ('</thead>');
@@ -3683,13 +3500,13 @@
 
  //                           html += '<td></td>'
                             html += '</tr>'
-                        }
+                        }                    
 
                     html += ('</tbody>');
                     html += '</table>';
 
                     html += ('<div class="input-group">'); //btn - group
-                    html += ('<button type="button" class="btn btn-default" onclick="ui.transition.row_add(); ui.nav.click(2);"><span class="glyphicon glyphicon-plus"></span></button>'); //btn - xs
+                    html += ('<button type="button" class="btn btn-default" onclick="ui.transition.row_add(); ui.nav.click(2);"><span class="glyphicon glyphicon-plus"></span></button>'); //btn - xs 
                     html += ('<button type="button" class="btn btn-default" onclick="ui.transition.row_delete(this); ui.nav.click(2);"><span class="glyphicon glyphicon-remove"></span></button>'); //btn - xs
                     html += ('<input type="button" class="btn btn-default" onclick="microFractalGraph.saveCoeffReposts(); microFractalGraph.saveSelectedTems(); microFractalGraph.saveP(); ui.nav.click(3);" value="Сохранить" />');
                     html += ('</div>');
@@ -3753,9 +3570,9 @@
                                 for (var i = 0; i < raznost; i++) { ui.transition.row_add(); }
                             }
                             else if (raznost < 0) {
-                                for (var i = 0; i < (-raznost); i++) { ui.transition.row_delete(this); }
+                                for (var i = 0; i < (-raznost); i++) { ui.transition.row_delete(this); }                            
                             }
-
+                                                     
                             for (var i = 0; i < new_lines_microfractal; i++) {
                                 masMicrofractalP[i][0] = data["fractals"][i]["pi"];
                                 masMicrofractalP[i][1] = data["fractals"][i]["pr"];
@@ -4124,295 +3941,27 @@
                 }
             }
         }
-            </script>
-            <script type="text/javascript">
-                //При загрузке документа всегды выполняется:
-                $(document).ready(function () { networkGraph.generateNet(); ui.nav.click(3); });
-            </script>
+    </script>
+    <script type="text/javascript">
+        //При загрузке документа всегды выполняется:
+        $(document).ready(function () { networkGraph.generateNet(); ui.nav.click(3); });
+    </script>
 
-            <div class="row text-right">
-                <hr>
-                <footer>
-                    <p>©2017 – приложение кафедры СИБ</p>
-                </footer>
-            </div>
+        <div class="row text-right">
+            <hr>
+            <footer>
+                <p>©2017 – приложение кафедры СИБ</p>
+            </footer>
         </div>
-
-        <script type="text/javascript">
-            //alert(document.body.clientHeight);
-            document.getElementById('svgGraph').style.width = document.body.clientWidth - 80;
-            document.getElementById('svgGraph').style.height = document.body.clientHeight - 80;
+    </div>
 
 
-            var zeroX = 15;
-            var zeroY = 25;
-            //var graphXPos = svgGraph.clientWidth / 2 + zeroX - graphPict.clientWidth/2;
-            //var graphYPos = svgGraph.clientHeight / 2 + zeroY - graphPict.clientHeight/2;
-            //var minX;
-            var maxX = 0;
-            var minX = 1000;
-            var minY = 1000;
-            var maxY = 0;
-            for (i = 0; i < graphPict.childNodes.length; i++) {
-                if (graphPict.childNodes[i].nodeName == "circle") {
-                    if (graphPict.childNodes[i].cx.baseVal.value > maxX) {
-                        maxX = graphPict.childNodes[i].cx.baseVal.value;
-                    }
-                    if (graphPict.childNodes[i].cx.baseVal.value < minX) {
-                        minX = graphPict.childNodes[i].cx.baseVal.value;
-                    }
-                    if (graphPict.childNodes[i].cy.baseVal.value > maxY) {
-                        maxY = graphPict.childNodes[i].cy.baseVal.value;
-                    }
-                    if (graphPict.childNodes[i].cy.baseVal.value < minY) {
-                        minY = graphPict.childNodes[i].cy.baseVal.value;
-                    }
-                }
-            }
-
-
-            var widthGraph = (maxX - minX + 7) * graphPict.transform.baseVal[1].matrix.a;
-            var heightGraph = (maxY - minY + 7) * graphPict.transform.baseVal[1].matrix.a;
-            var scaleGraph = graphPict.transform.baseVal[1].matrix.a;
-
-            if (widthGraph > svgGraph.clientWidth - 20) {
-                scaleGraph = scaleGraph * (svgGraph.clientWidth - 20) / widthGraph;
-            }
-            if (heightGraph > svgGraph.clientHeight - 20) {
-                scaleGraph = scaleGraph * (svgGraph.clientHeight - 20) / heightGraph;
-            }
-
-            var graphXPos = (svgGraph.clientWidth + zeroX - (maxX - minX + 7) * scaleGraph) / 2;
-            var graphYPos = (svgGraph.clientHeight + zeroY - (maxY - minY + 7) * scaleGraph) / 2;
-
-
-            graphPict.setAttribute("transform", "translate(" + graphXPos + "," + graphYPos + ")scale(" + scaleGraph + ")");
-            
-            function resizeWindow()
-            {
-                //alert(document.body.clientHeight);
-                document.getElementById('svgGraph').style.width = document.body.clientWidth - 80;
-                //document.getElementById('svgGraph').style.height = document.body.clientHeight - 80;
-                if(parseInt(document.getElementById('sidebar').style.right.replace("px", "")) > 10)
-                {
-                    document.getElementById('sidebar').style.right = document.body.clientWidth + "px";
-                }
-
-
-                widthGraph = (maxX - minX + 7) * graphPict.transform.baseVal[1].matrix.a;
-                heightGraph = (maxY - minY + 7) * graphPict.transform.baseVal[1].matrix.a;
-                scaleGraph = graphPict.transform.baseVal[1].matrix.a;
-
-                if (widthGraph > svgGraph.clientWidth - 20) {
-                    scaleGraph = scaleGraph * (svgGraph.clientWidth - 20) / widthGraph;
-                }
-                if (heightGraph > svgGraph.clientHeight - 20) {
-                    scaleGraph = scaleGraph * (svgGraph.clientHeight - 20) / heightGraph;
-                }
-
-                graphXPos = (svgGraph.clientWidth + zeroX - (maxX - minX + 7) * scaleGraph) / 2;
-                graphYPos = (svgGraph.clientHeight + zeroY - (maxY - minY + 7) * scaleGraph) / 2;
-
-
-                graphPict.setAttribute("transform", "translate(" + graphXPos + "," + graphYPos + ")scale(" + scaleGraph + ")");
-            }
-
-            window.addEventListener("resize", resizeWindow);
-            /*function screenSize() {
-                var w, h; // Объявляем переменные, w - длина, h - высота
-                w = (window.innerWidth ? window.innerWidth : (document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.offsetWidth));
-                h = (window.innerHeight ? window.innerHeight : (document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.offsetHeight));
-                return { w: w, h: h };
-            }
-            alert(screenSize().w);*/
-            function clickOnMainPanel(event) {
-                event.stopPropagation();
-            }
-            
-            if ('ontouchstart' in window) {
-                mainPanel.addEventListener("touchstart", clickOnMainPanel);
-            }
-            else {
-                mainPanel.addEventListener("mousedown", clickOnMainPanel);
-            }
-            var startX;
-            var flagMD = false;
-            var offset;
-            var elementPos;
-            var direction = true;
-
-
-            function resizeSidebar() {
-                //alert("we have been there");
-                if (direction) {
-                    document.getElementById('sidebar').style.right = parseInt(document.getElementById('sidebar').style.right.replace("px", "")) - 2 + "px";
-                }
-                else {
-                    document.getElementById('sidebar').style.right = parseInt(document.getElementById('sidebar').style.right.replace("px", "")) + 2 + "px";
-                }
-            }
-
-            function defineStartX()
-            {
-                if ('ontouchstart' in window) {
-                    startX = event.touches[0].clientX;
-                }
-                else
-                {
-                    startX = event.clientX;
-                }
-            }
-
-            function down(event){
-                defineStartX();
-                flagMD = true;
-                elementPos = document.body.scrollWidth - document.getElementById('sidebar').clientWidth;
-            }
-
-            function move(event){
-                if (flagMD) {
-                    var curX;
-                    if ('ontouchmove' in window) {
-                        curX = event.touches[0].clientX;
-                    }
-                    else {
-                        curX = event.clientX;
-                    }
-                    if ((-curX + startX) > 20) {
-                        if (parseInt(document.getElementById('sidebar').style.right.replace("px", "")) < document.body.clientWidth) {
-                            document.getElementById('sidebar').style.right = elementPos - curX + startX + 'px';
-                        }
-                    }
-                    else if ((-curX + startX) < -20) {
-                        if (parseInt(document.getElementById('sidebar').style.right.replace("px", "")) > 10) {
-                            document.getElementById('sidebar').style.right = elementPos - curX + startX + 'px';
-                        }
-                    }
-
-                }
-            }
-
-            function up(event){
-                flagMD = false;
-                var curX;
-                if ('ontouchend' in window) {
-                    curX = event.changedTouches[0].clientX;
-                }
-                else {
-                    curX = event.clientX;
-                }
-                if (startX > (curX + 20)) {
-                    direction = false;
-                }
-                else if (startX < (curX - 20)) {
-                    direction = true;
-                }
-                else
-                {
-                    return;
-                }
-                var limit;
-                if (direction) {
-                    limit = (document.body.clientWidth - document.getElementById('sidebar').clientWidth - 10) / 2;
-                }
-                else {
-                    limit = document.getElementById('sidebar').clientWidth / 2;
-                }
-                
-                document.getElementById('sidebar').style.right = document.body.scrollWidth - document.getElementById('sidebar').clientWidth + 'px';
-                for (i = 0; i < limit; i++) {
-                    setTimeout(resizeSidebar, i);
-                }
-            }
-
-            if ('ontouchstart' in window) {
-                graph.addEventListener("touchstart", down);
-            }
-            else
-            {
-                graph.addEventListener("mousedown", down);
-            }
-
-            if ('ontouchmove' in window) {
-                graph.addEventListener("touchmove", move);
-            }
-            else {
-                graph.addEventListener("mousemove", move);
-            }
-
-            if ('ontouchend' in window) {
-                graph.addEventListener("touchend", up);
-            }
-            else {
-                graph.addEventListener("mouseup", up);
-            }
-            
-
-            /*graph.ontouchstart = function (event) {
-                var winWidth = (window.innerWidth ? window.innerWidth : (document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.offsetWidth));
-                startX = event.touches[0].clientX;
-                flagMD = true;
-                //elementPos = (document.body.scrollWidth - document.getElementById('sidebar').clientWidth) / document.body.scrollWidth * 100 + 1;
-                //document.getElementById('sidebar').style.right = elementPos + '%';
-                elementPos = document.body.scrollWidth - document.getElementById('sidebar').clientWidth;
-                //document.getElementById('sidebar').style.right = elementPos + 'px';
-            };*/
-            /*graph.ontouchmove = function (event) {
-                if (flagMD) {
-                    if ((-event.touches[0].clientX + startX) > 20) {
-                        if (parseInt(document.getElementById('sidebar').style.right.replace("px", "")) < document.body.clientWidth) {
-                            var i = Math.round((-event.touches[0].clientX + startX));
-                            document.getElementById('sidebar').style.right = elementPos + Math.round((-event.touches[0].clientX + startX)) + 'px';
-                        }
-                    }
-                    else if ((-event.touches[0].clientX + startX) < -20) {
-                        if (parseInt(document.getElementById('sidebar').style.right.replace("px", "")) > 10) {
-                            var i = Math.round((-event.touches[0].clientX + startX));
-                            document.getElementById('sidebar').style.right = elementPos + Math.round((-event.touches[0].clientX + startX)) + 'px';
-                        }
-                    }
-
-                }
-            };*/
-
-            /*graph.ontouchend = function (event) {
-                //alert(document.body.clientWidth + " " + document.body.clientHeight);
-                var winWidth = (window.innerWidth ? window.innerWidth : (document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.offsetWidth));
-                flagMD = false;
-                if (startX > (event.changedTouches[0].clientX + 20)) {
-                    direction = false;
-                }
-                else if (startX < (event.changedTouches[0].clientX - 20)) {
-                    direction = true;
-                }
-                else
-                {
-                    return;
-                }
-                var limit;
-                if (direction) {
-                    limit = (document.body.clientWidth - document.getElementById('sidebar').clientWidth - 10) / 2;
-                }
-                else {
-                    limit = document.getElementById('sidebar').clientWidth / 2;
-                }
-                
-                document.getElementById('sidebar').style.right = document.body.scrollWidth - document.getElementById('sidebar').clientWidth + 'px';
-                for (i = 0; i < limit; i++) {
-                    setTimeout(resizeSidebar, i);
-                }
-            };*/
-
-        
-        </script>
-
-
-        <!-- Visual Studio Browser Link -->
-        <script type="application/json" id="__browserLink_initializationData">
-            {"appName":"Chrome","requestId":"82564dbe5eec4fa0af03a9fa0f61a1ad"}
-        </script>
-        <script type="text/javascript" src="./CountMetrics – приложение ASP.NET_files/browserLink" async="async"></script>
-        <!-- End Browser Link -->
+<!-- Visual Studio Browser Link -->
+<script type="application/json" id="__browserLink_initializationData">
+    {"appName":"Chrome","requestId":"79aa6ed9941846eabeef491c0b1ead07"}
+</script>
+<script type="text/javascript" src="./CountMetrics – приложение ASP.NET_files/browserLink" async="async"></script>
+<!-- End Browser Link -->
 
 
 
